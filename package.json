@@ -1,0 +1,12 @@
+{
+  "name": "product-api-nodeonlyjs",
+  "version": "1.0.0",
+  "description": "just creating a normal api using node js only no other packages used",
+  "main": "prodserver.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sowparna Shome",
+  "license": "ISC"
+}
