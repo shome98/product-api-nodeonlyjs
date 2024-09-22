@@ -102,7 +102,7 @@ const server = http.createServer(async (req, res) => {
         }
 
         //update data
-        else if (req.method === 'GET' && URL.pathname.startsWith('/data/')) {
+        else if (req.method === 'PUT' && url.pathname.startsWith('/data/')) {
             const body = await getRequestBody(req);
             const updatedData = { ...JSON.parse(body), id };
             eventEmitter.emit('updateData', updatedData);
