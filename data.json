@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Laptop",
+    "price": 1000,
+    "id": 1727879288617
+  },
+  {
+    "name": "Smartphone",
+    "price": 789,
+    "id": 1727879319435
+  },
+  {
+    "name": "Tablet",
+    "price": 450,
+    "id": 1727879333364
+  },
+  {
+    "name": "Headphones",
+    "price": 150,
+    "id": 1727879346870
+  },
+  {
+    "name": "Smartwatch",
+    "price": 300,
+    "id": 1727879363833
+  },
+  {
+    "name": "Keyboard",
+    "price": 100,
+    "id": 1727879376399
+  },
+  {
+    "name": "Mouse",
+    "price": 50,
+    "id": 1727879397874
+  },
+  {
+    "name": "Monitor",
+    "price": 250,
+    "id": 1727879438399
+  },
+  {
+    "name": "External Hard Drive",
+    "price": 200,
+    "id": 1727879456838
+  },
+  {
+    "name": "Webcam",
+    "price": 120,
+    "id": 1727879474150
+  },
+  {
+    "name": "Speaker",
+    "price": 180,
+    "id": 1727879508279
+  },
+  {
+    "name": "Printer",
+    "price": 400,
+    "id": 1727879563096
+  },
+  {
+    "name": "Router",
+    "price": 80,
+    "id": 1727879583028
+  },
+  {
+    "name": "Gaming Console",
+    "price": 500,
+    "id": 1727879606847
+  },
+  {
+    "name": "VR Headset",
+    "price": 350,
+    "id": 1727879619696
+  },
+  {
+    "name": "Drone",
+    "price": 600,
+    "id": 1727879630781
+  },
+  {
+    "name": "Digital Camera",
+    "price": 800,
+    "id": 1727879641979
+  },
+  {
+    "name": "Projector",
+    "price": 900,
+    "id": 1727879653660
+  },
+  {
+    "name": "Smart Light",
+    "price": 60,
+    "id": 1727879666799
+  },
+  {
+    "name": "Portable Charger",
+    "price": 30,
+    "id": 1727879679182
+  }
+]

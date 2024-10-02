@@ -101,6 +101,18 @@ const server = http.createServer(async (req, res) => {
             res.end(JSON.stringify({ message: 'Data Saved', data: newData }));
         }
 
+        //post multiple data at once
+        else if (req.method === 'POST' && url.pathname === '/data/multiple') {
+            const body = await getRequestBody(req);
+            const newItems = JSON.parse(body).map(item => ({
+                ...item,
+                id: Date.now() + Math.random(),
+            }));
+            newItems.forEach(item => eventEmitter.emit("saveData", item));
+            res.writeHead(201, { "Content-Type": "application/json" });
+            res.end(JSON.stringify({ message: "Multiple Data saved", data: newItems }));
+        }
+
         //update data
         else if (req.method === 'PUT' && url.pathname.startsWith('/data/')) {
             const body = await getRequestBody(req);
@@ -109,12 +121,47 @@ const server = http.createServer(async (req, res) => {
             res.writeHead(200, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ message: 'Data updated', data: updatedData }));
         }
+            
+        //Partially update an item by ID
+        else if (req.method === "PATCH" && url.pathname.startsWith("/data/")) {
+          const body = await getRequestBody(req);
+          const data = await readDataFromFile();
+          const index = data.findIndex((item) => item.id === id);
+          if (index !== -1) {
+            data[index] = { ...data[index], ...JSON.parse(body) };
+            await writeDataToFile(data);
+            res.writeHead(200, { "Content-Type": "application/json" });
+            res.end(
+              JSON.stringify({
+                message: "Data partially updated",
+                data: data[index],
+              })
+            );
+          } else {
+            res.writeHead(404, { "Content-Type": "application/json" });
+            res.end(JSON.stringify({ message: "Data not found" }));
+          }
+        }
+
 
         //get the all the data
         else if (req.method === 'GET' && url.pathname === '/data') {
             const data = await readDataFromFile();
             res.writeHead(200, { 'Content-Type': 'application//json' });
             res.end(JSON.stringify(data));
+        }
+            
+        //Retrieve a single item by ID
+        else if (req.method === "GET" && url.pathname.startsWith("/data/")) {
+          const data = await readDataFromFile();
+          const item = data.find((d) => d.id === id);
+          if (item) {
+            res.writeHead(200, { "Content-Type": "application/json" });
+            res.end(JSON.stringify(item));
+          } else {
+            res.writeHead(404, { "Content-Type": "application/json" });
+            res.end(JSON.stringify({ message: "Data not found" }));
+          }
         }
 
         //delete a data
